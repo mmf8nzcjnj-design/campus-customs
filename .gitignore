@@ -1,0 +1,29 @@
+# --- Secrets: never commit real keys --------------------------------------
+.env
+.env.*
+**/.env
+!**/.env.example
+
+# --- Course data: the Campus Customs database and product images ---------
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+data/products/
+
+# --- Archived local audit logs (contain real test chats) -------------------
+output/audit_trail.local-*.json
+output/audit_trail.corrupt-*.json
+*.tmp
+
+# --- Build output and dependencies -----------------------------------------
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+.venv/
+__pycache__/
+*.pyc
+
+# --- Local / OS files ------------------------------------------------------
+.DS_Store
+session_joke.txt

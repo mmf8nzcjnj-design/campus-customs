@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App Check — Campus Customs (MGT 409 Homework 4, Problem 11)</title>
+<style>
+  :root {
+    --yale: #00356b; --yale-2: #0f4d92; --sky: #e8f0fa; --paper: #faf8f4; --ink: #1f2733;
+    --muted: #5f6b7d; --line: #e4dfd5; --gold: #e2b54a; --gold-soft: #fbf1d8; --green: #2e7d5b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; }
+  header.top { background: var(--yale); color: #dfe8f5; padding: 2.4rem 1.5rem 2rem; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+  header.top h1 { color: #fff; margin: 0.2rem 0 0.6rem; font-size: 2.2rem; }
+  .kicker { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; font-weight: 700; color: var(--gold); }
+  .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.4rem 1.4rem; margin-top: 1rem; font-size: 0.92rem; }
+  .meta b { color: #fff; }
+  main { padding: 2rem 1.5rem 4rem; }
+  .summary { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem 1.4rem; margin-bottom: 2.2rem; }
+  .summary h2 { margin: 0 0 0.6rem; color: var(--yale); font-size: 1.35rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td a { color: var(--yale-2); text-decoration: none; font-weight: 600; }
+  .pass { display: inline-block; background: #e3f3ea; color: var(--green); font-weight: 700; font-size: 0.78rem; padding: 0.15rem 0.55rem; border-radius: 999px; }
+  section.check { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; margin-bottom: 2rem; }
+  .check-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .num { font-family: Georgia, serif; font-size: 1.6rem; color: var(--gold); font-weight: 700; }
+  .check h2 { margin: 0; color: var(--yale); font-size: 1.45rem; flex: 1; }
+  .feature { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+  .body { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+  .body.wide { grid-template-columns: 1fr; }
+  figure { margin: 0; }
+  figure a { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #f2f0eb; }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { font-size: 0.88rem; color: var(--muted); margin-top: 0.5rem; }
+  .text h3 { font-size: 1rem; margin: 1rem 0 0.3rem; color: var(--yale); font-family: inherit; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem; }
+  .text h3:first-child { margin-top: 0; }
+  .text p, .text ul, .text ol { margin: 0 0 0.6rem; }
+  .text ul, .text ol { padding-left: 1.2rem; }
+  .rationale { background: var(--gold-soft); border: 1px solid #f0dfaf; border-radius: 12px; padding: 0.8rem 1rem; margin-top: 0.8rem; }
+  .rationale h3 { margin-top: 0 !important; color: #7a5a12 !important; }
+  .verified { background: var(--sky); border-radius: 12px; padding: 0.7rem 1rem; font-size: 0.92rem; }
+  code { background: #f1efe9; padding: 0.05rem 0.35rem; border-radius: 5px; font-size: 0.88em; }
+  footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+  @media (max-width: 800px) { .body { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="kicker">MGT 409 · Homework 4 · Problem 11</span>
+    <h1>App Check: Campus Customs live site testing</h1>
+    <p>Screenshots from hands-on testing of the running Campus Customs storefront and its <b>Friendly Bulldog</b> shopping chatbot. Each one shows a feature working, with the business rationale for building it.</p>
+    <div class="meta">
+      <span><b>Tested by:</b> Manish Mulchandani (signed in)</span>
+      <span><b>Date:</b> 5 October 2026</span>
+      <span><b>Build:</b> local, <code style="background:rgba(255,255,255,.12);color:#fff">http://127.0.0.1:5173</code></span>
+      <span><b>Stack:</b> React + TypeScript · FastAPI · PydanticAI agent · SQLite</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="summary">
+    <h2>Summary</h2>
+    <table>
+      <thead><tr><th>#</th><th>What was checked</th><th>Feature</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><a href="#check-1">Chat search puts matching products on the page</a></td><td>Chat search that updates the page (Problem 7)</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>2</td><td><a href="#check-2">Saved size is pre-selected on the next product</a></td><td>Usability: remember my size (Problem 9)</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>3</td><td><a href="#check-3">"Complete the look" recommendations after adding to bag</a></td><td>Usability: cross-sell recommendations (Problem 9)</td><td><span class="pass">PASS</span></td></tr>
+        <tr><td>4</td><td><a href="#check-4">Chat answers stock level by size from the database</a></td><td>Database tools: products, info and stock (Problem 6)</td><td><span class="pass">PASS</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 1 -->
+  <section class="check" id="check-1">
+    <div class="check-head"><span class="num">01</span><h2>Chat search updates the page with product recommendations</h2><span class="pass">PASS</span></div>
+    <p class="feature">Feature: chat search that updates the page (Problem 7) · Page: <code>/products</code></p>
+    <div class="body">
+      <figure>
+        <a href="app_check_images/01-chat-search-updates-page.png" target="_blank"><img src="app_check_images/01-chat-search-updates-page.png" alt="Friendly Bulldog chat answering 'Find me blue-colored T-shirts for my girlfriend' with 5 navy T-shirts, which also appear as Bulldog's pick product cards on the Products page"></a>
+        <figcaption>Screenshot 1: the shopper asks the chat for blue T-shirts, and the matching products appear as cards on the page.</figcaption>
+      </figure>
+      <div class="text">
+        <h3>What I did</h3>
+        <p>Signed in, opened the Friendly Bulldog chat, and typed: <i>"Find me blue-colored T-shirts for my girlfriend."</i></p>
+        <h3>What happened</h3>
+        <ul>
+          <li>The chat greeted me by name ("Hi Manish!") and replied that the shop has <b>5 blue/navy T-shirts</b> at <b>$32.00</b>, highlighting three of them.</li>
+          <li>The <b>Products page updated by itself</b> with a "From your chat" section, <b>Blue T-Shirts · 5 found</b>, showing each match as a full product card (image, name, short description, price) marked <i>Bulldog's pick</i>.</li>
+          <li>Mini product cards with price and the sizes in stock also appear under the chat reply, and every card opens the product's detail page.</li>
+        </ul>
+        <div class="verified"><b>Verified against the database:</b> exactly 5 T-shirts have navy as the garment color, all priced $32.00. The chat's count and price match.</div>
+        <div class="rationale">
+          <h3>Rationale</h3>
+          <p>Shoppers describe what they want in their own words ("blue T-shirts for my girlfriend") instead of clicking through filters. The chat finds the matches and lays them out where they're easy to compare and buy.</p>
+          <p>Business value: fewer steps from intent to product page means fewer abandoned visits and more conversions. It also turns the chatbot from a help desk into a sales channel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="check" id="check-2">
+    <div class="check-head"><span class="num">02</span><h2>The size a shopper picked is remembered and pre-selected</h2><span class="pass">PASS</span></div>
+    <p class="feature">Feature: usability improvement, remember my size (Problem 9) · Page: <code>/products/district-vit-hoodie-vintage-bulldog</code></p>
+    <div class="body">
+      <figure>
+        <a href="app_check_images/02-saved-size-preselected.png" target="_blank"><img src="app_check_images/02-saved-size-preselected.png" alt="District Vit Hoodie Vintage Bulldog product page with size S already selected and the note 'We picked S, the size in your bag'"></a>
+        <figcaption>Screenshot 2: after adding a size S item to the bag, a different product opens with S already selected.</figcaption>
+      </figure>
+      <div class="text">
+        <h3>What I did</h3>
+        <p>Added an item in size <b>S</b> to the bag, then opened a different product, the <b>District Vit Hoodie Vintage Bulldog</b> ($68.00).</p>
+        <h3>What happened</h3>
+        <ul>
+          <li>Size <b>S</b> was <b>automatically selected</b>, with the note: <i>"✓ We picked S, the size in your bag. Tap another to change."</i></li>
+          <li>The size row shows live stock for S ("12 in stock"), and the shopper can switch sizes with one tap.</li>
+          <li>The "Buy now" button is ready right away, with no extra click to choose a size.</li>
+        </ul>
+        <div class="verified"><b>Verified against the database:</b> District Vit Hoodie Vintage Bulldog has 12 units in size S, matching the "12 in stock" shown. If the saved size were sold out on an item, the page would say so instead of pre-selecting it.</div>
+        <div class="rationale">
+          <h3>Rationale</h3>
+          <p>A shopper wears one size, so making them pick it again on every product is a repeated, pointless click. Remembering it makes every next product one tap from "Buy now".</p>
+          <p>Business value: less friction on the second and third item raises items per order. It also supports our "fewest clicks to checkout" goal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="check" id="check-3">
+    <div class="check-head"><span class="num">03</span><h2>"Complete the look" recommends products based on the last item added</h2><span class="pass">PASS</span></div>
+    <p class="feature">Feature: usability improvement, cross-sell recommendations in the bag (Problem 9) · Bag drawer</p>
+    <div class="body">
+      <figure>
+        <a href="app_check_images/03-complete-the-look-recommendations.png" target="_blank"><img src="app_check_images/03-complete-the-look-recommendations.png" alt="Bag drawer showing 'Added to your bag: Benjamin Franklin T Shirt, Size S' and a 'Complete the look' list of four products in stock in size S, each with a one-tap '+ S' button"></a>
+        <figcaption>Screenshot 3: after adding a T-shirt, the bag suggests four matching products in the shopper's size.</figcaption>
+      </figure>
+      <div class="text">
+        <h3>What I did</h3>
+        <p>Added the <b>Benjamin Franklin T-Shirt</b> in size <b>S</b> to the bag.</p>
+        <h3>What happened</h3>
+        <ul>
+          <li>The bag opened and confirmed: <i>"✓ Added to your bag: Benjamin Franklin T Shirt · Size S"</i>.</li>
+          <li>A <b>Complete the look</b> panel recommended 4 products to go with a T-shirt, <i>all in stock in size S</i>: a hoodie ($68), a crewneck ($58), a fleece jacket ($98) and another tee ($32). Picks favor complementary layers and the same theme. For example, the Benjamin Franklin Fleece Jacket matches the Benjamin Franklin tee.</li>
+          <li>Each recommendation has a <b>one-tap "+ S" button</b> that adds it in the saved size without leaving the bag.</li>
+        </ul>
+        <div class="verified"><b>Verified against the database:</b> all four recommendations have stock in size S (Hockey hoodie 15, Squash Left Chest 20, Benjamin Franklin Fleece 12, Diving tee 15), at the prices shown.</div>
+        <div class="rationale">
+          <h3>Rationale</h3>
+          <p>The moment a shopper adds something is when they're most ready to buy more. Showing items that go with it, in their size and one tap away, saves them a new search.</p>
+          <p>Business value: cross-selling at add-to-bag raises average order value and items per order, which means more revenue from the same visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="check" id="check-4">
+    <div class="check-head"><span class="num">04</span><h2>Chat checks the live inventory level, size by size</h2><span class="pass">PASS</span></div>
+    <p class="feature">Feature: database tools for products, info and stock (Problem 6) · Chat widget</p>
+    <div class="body">
+      <figure>
+        <a href="app_check_images/04-chat-inventory-check.png" target="_blank"><img src="app_check_images/04-chat-inventory-check.png" alt="Friendly Bulldog answering 'How many of the Boola Boola T-shirts are available?' with 61 total: XS 12, S 12, M 15, XL 2 and XXL 20, sold out in L"></a>
+        <figcaption>Screenshot 4: the chat reports the exact stock for each size and says plainly which size is sold out.</figcaption>
+      </figure>
+      <div class="text">
+        <h3>What I did</h3>
+        <p>As a follow-up in the same chat, asked: <i>"How many of the Boola Boola T-shirts are available?"</i></p>
+        <h3>What happened</h3>
+        <ul>
+          <li>The chat answered: <b>61 total available</b>: XS 12, S 12, M 15, XL 2 and XXL 20, and <b>"It's sold out in L."</b></li>
+          <li>It understood the follow-up refers to a product from the earlier answer, and attached the product card ($32.00, sizes in stock: XS S M XL XXL).</li>
+        </ul>
+        <div class="verified"><b>Verified against the database (<code>inventory</code> table):</b> Boola Boola T-Shirt has XS 12, S 12, M 15, L 0, XL 2, XXL 20, so 61 units in total, priced $32.00. Every number in the reply matches. The agent reads stock through its <code>get_product_details</code> / <code>check_stock</code> tools and is not allowed to guess quantities.</div>
+        <div class="rationale">
+          <h3>Rationale</h3>
+          <p>People shop by their own size. A precise, honest answer per size, including "sold out in L", builds trust and stops disappointment at checkout.</p>
+          <p>Business value: accurate stock answers mean fewer failed orders, cancellations and support emails. Low counts like "XL: 2 left" also create urgency to buy now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Screenshots are stored in <code>output/app_check_images/</code> and linked here with relative paths. Click any screenshot to open it full size. Every figure quoted was cross-checked against <code>data/campus_customs.db</code> on 5 October 2026.
+  </footer>
+</main>
+</body>
+</html>

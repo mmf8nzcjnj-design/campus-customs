@@ -1,0 +1,18 @@
+{
+  "_note": "Fixes for catalogue rows whose description, colors, and tags were filename stubs ('Vision blocked'). Written from the product photos. The backend layers these over the database rows; the .db file is left untouched.",
+  "benjamin-franklin-t-shirt": {
+    "description": "Heather gray short-sleeve crew-neck T-shirt featuring the Benjamin Franklin College shield in red and blue with white lightning bolts and fleurs-de-lis, with BENJAMIN FRANKLIN COLLEGE printed in black beneath.",
+    "colors": ["heather gray", "red", "blue", "black"],
+    "search_tags": ["Benjamin Franklin College", "residential college", "college crest", "Yale", "gray T-shirt", "short sleeve", "Campus Customs"]
+  },
+  "berkeley-sweater-fleece-jacket": {
+    "description": "Light heather gray full-zip sweater fleece jacket with a stand collar, charcoal zipper and pocket trim, zippered hand pockets, and an embroidered red Berkeley College shield with BERKELEY text on the left chest.",
+    "colors": ["heather gray", "charcoal gray", "red"],
+    "search_tags": ["Berkeley College", "residential college", "fleece jacket", "sweater fleece", "full zip", "Yale", "college crest", "Campus Customs"]
+  },
+  "timothy-dwight-college-crewneck": {
+    "description": "Heather gray long-sleeve crewneck sweatshirt with ribbed collar, cuffs, and waistband, featuring a small red Timothy Dwight College shield and TIMOTHY DWIGHT text on the left chest.",
+    "colors": ["heather gray", "red", "black"],
+    "search_tags": ["Timothy Dwight College", "TD", "residential college", "crewneck", "sweatshirt", "gray sweatshirt", "left chest logo", "Yale", "Campus Customs"]
+  }
+}
